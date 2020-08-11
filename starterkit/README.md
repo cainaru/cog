@@ -23,8 +23,12 @@ The Cog theme is set up to utilize the `base => sub-theme` relationship. The ste
 ### Create Cog Sub-Theme
 
 * In your `themes/` directory create the `contrib/` and `custom/` directories
-* Download Cog into the `themes/contrib` folder and enable using `drush en cog`
-* Create the sub-theme with `drush cog "MyTheme"` (if you'd like to customize, first run `drush help cog` to see available options)
+* Download Cog into the `themes/contrib` folder and enable using `drush en cog` (`drush then cog` if using Drush 9+)
+* Create the sub-theme by cloning `starterkit` to your `themes/custom/` directory
+  * Rename `starterkit` to a unique machine-readable name (e.g., `mytheme`)
+  * For `starterkit.info.yml`, `starterkit.layouts.yml`, `starterkit.libraries.yml` and `starterkit.theme`, replace `starterkit` with your unique machine-readable name (e.g., `mytheme.info.yml`, `mytheme.layouts.yml`, etc.)
+  * In `starterkit.info.yml`, `starterkit.theme`, and `theme-settings.php` replace instances of `starterkit` with your unique machine-readable name
+  * Remove `hidden: true` from `starterkit.info.yml`
 * Enable your new `MyTheme` theme with `drush en mytheme` which is located in `themes/custom`
 * Set `MyTheme` as your default theme `drush config-set system.theme default mytheme`
 
